@@ -13,9 +13,27 @@ Route::get('/about', function () {
         . 'Laravel, Memang keren.';
     });
 
-    Route::get('/animals', function () {
-        $king = "Lion";
-        $hewan = ["Monkey", "Dragonfly", "Tiger", "Butterfly", "Crocodile"];
-        return view('animals_page', compact('king','hewan'));
-           
-        });
+    Route::get('/halaman2', function () {
+        return view('animals');
+    });
+
+    Route::get('/halaman3', function () {
+    return view('fruits');
+    });
+
+    Route::get('/About', function () {
+        $nama = "Muhammad Maulana Gibran"; 
+        $jk = "Laki-laki";
+        $pt = "SMK";
+        $pekerjaan = "Siswa";
+    return view('biodata', compact('nama','jk','pt','pekerjaan'));
+    });
+
+    Route::get('/sample/{nama}/{kelas}', function (Request $request, $nama, $kelas) {
+        $nama2 = $nama;
+        $kelas2 = $kelas;
+    return view('sample', compact('nama2', 'kelas2'));
+});
+
+
+
