@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Siswa;
+use App\Models\Sekolah;
+use App\Models\Film;
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -34,6 +38,29 @@ Route::get('/about', function () {
         $kelas2 = $kelas;
     return view('sample', compact('nama2', 'kelas2'));
 });
+
+    Route::get('siswa',function(){
+        return view('siswa');
+});
+    Route::get('sekolah', function () {
+    return view('siswa');
+
+});
+Route::get('album', function () {
+    return view('albummusik');
+
+});
+Route::get('film', function () {
+    return view('film');
+
+});
+Route::get('film/{id}', function(int $id) {
+    $film = Film::find($id);
+    return view('detail-film', ['film' => Film::findOrfail($id)]);
+
+});
+
+
 
 
 

@@ -1,0 +1,23 @@
+Materi Laravel
+
+APK yang dibutuhkan
+- Composer
+- Chrome
+- VS Code
+- Xampp 
+- Git Bash
+
+Extensions Support for Laravel
+- Laravel snippets
+- Laravel blade
+- Laravel blade formatter
+- Laravel blade snippets
+- Laravel go to view
+- formatting toggle
+- phpfmt
+- material icon
+- atom / material theme
+
+Cara Kerja
+- Create project
+  composer create-project laravel/laravel:
