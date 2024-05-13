@@ -21,7 +21,8 @@
             <div class="col">
                 <div class="card shadow-sm">
                   @if ($item->media_type)
-                    Url Media : <a href="{{ $item->url_media }}">Klik Disini</a>
+                  <iframe width="350" height="200" src="{{ $item->url_media }}" title="YouTube video player"></iframe>
+                    {{-- Url Media : <a href="{{ $item->url_media }}">Klik Disini</a> --}}
                     @else
                         <img src="{{ $item->url_media }}" alt="" height="200px">
                     @endif

@@ -16,15 +16,15 @@ class FilmSeeder extends Seeder
     {
         Film::insert([
             'judul' => 'Jumanji',
-            'deskripsi' => 'lorem impsum.....'
+            'deskripsi' => 'Four teenagers are sucked into a magical video game, and the only way they can escape is to work together to finish the game.'
         ]);
          Film::insert([
             'judul' => 'Avatar',
-            'deskripsi' => 'lorem impsum.....'
+            'deskripsi' => 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.'
         ]);
          Film::insert([
             'judul' => 'Mortal Kombat',
-            'deskripsi' => 'lorem impsum.....'
+            'deskripsi' => 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.'
         ]);
     }
 }

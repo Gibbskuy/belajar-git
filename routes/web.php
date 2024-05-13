@@ -3,6 +3,10 @@
 use App\Models\Siswa;
 use App\Models\Sekolah;
 use App\Models\Film;
+// import controller
+use App\Http\Controller\Mycontroller;
+use App\Http\Controllers\MovieController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +30,7 @@ Route::get('/about', function () {
     });
 
     Route::get('/About', function () {
-        $nama = "Muhammad Maulana Gibran"; 
+        $nama = "Muhammad Maulana Gibran";
         $jk = "Laki-laki";
         $pt = "SMK";
         $pekerjaan = "Siswa";
@@ -60,7 +64,10 @@ Route::get('film/{id}', function(int $id) {
 
 });
 
+//route with controller
+Route::get('perkenalan',[App\Http\Controllers\Mycontroller::class,'introduce']);
+Route::get('hewan',[App\Http\Controllers\Mycontroller::class,'animals']);
 
+Route::get('movie', [App\Http\Controllers\MovieController::class, 'getMovie']);
 
-
-
+Route::get('movie/{id}', [App\Http\Controllers\MovieController::class, 'getMovieById']);
