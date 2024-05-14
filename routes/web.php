@@ -6,6 +6,7 @@ use App\Models\Film;
 // import controller
 use App\Http\Controller\Mycontroller;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ArtikelController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -71,3 +72,8 @@ Route::get('hewan',[App\Http\Controllers\Mycontroller::class,'animals']);
 Route::get('movie', [App\Http\Controllers\MovieController::class, 'getMovie']);
 
 Route::get('movie/{id}', [App\Http\Controllers\MovieController::class, 'getMovieById']);
+
+Route::get('artikel', [App\Http\Controllers\ArtikelController::class, 'getArtikel']);
+Route::get('artikel/{id}', [App\Http\Controllers\ArtikelController::class, 'getArtikelById']);
+Route::get('artikel/kategori/{kategori}', [App\Http\Controllers\ArtikelController::class, 'getArtikelByKategori']);
+

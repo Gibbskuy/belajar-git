@@ -1,5 +1,6 @@
 @extends('layout.layout')
 @section('content')
+<div class="album py-5 bg-light">
     <div class="container mt-4">
         <div class="row">
             @foreach ($movies as $movie)
@@ -16,4 +17,5 @@
             @endforeach
         </div>
     </div>
+</div>
 @endsection
