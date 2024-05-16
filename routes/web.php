@@ -7,6 +7,9 @@ use App\Models\Film;
 use App\Http\Controller\Mycontroller;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\PenulisController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\BukuController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -77,3 +80,11 @@ Route::get('artikel', [App\Http\Controllers\ArtikelController::class, 'getArtike
 Route::get('artikel/{id}', [App\Http\Controllers\ArtikelController::class, 'getArtikelById']);
 Route::get('artikel/kategori/{kategori}', [App\Http\Controllers\ArtikelController::class, 'getArtikelByKategori']);
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// route crud
+Route::resource('penulis', PenulisController::class);
+Route::resource('genre', GenreController::class);
+Route::resource('buku', BukuController::class);

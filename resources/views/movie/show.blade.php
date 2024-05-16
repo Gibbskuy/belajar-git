@@ -7,9 +7,9 @@
                         <img src="{{$movie->cover_url}}" class="card-img-top" alt="..." >
                         <div class="card-body">
                           <p class="card-text">{{$movie->title}}</p>
-                          <p>Jumlah Viewer : <b>{{$movie->Viewer}}</b> View</p>
-                          <p>Desc : {{$movie->deskripsi}}</p>
-                          <p><a href="{{$movie->trailer_url}}">Link</a></p>
+                          <p><b>Jumlah Viewer :</b> {{$movie->Viewer}} View</p>
+                          <p><b>Desc :</b> {{$movie->deskripsi}}</p>
+                          <p><a href="{{$movie->trailer_url}}"><b>Trailer</b></a></p>
                         </div>
                     </div>
                 </div>

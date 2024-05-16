@@ -16,7 +16,7 @@
                                 <p>{{ $item->kategori }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a href="{{ url('artikel/' . $item->id) }}"
+                                        <a href="{{ url('artikel/' . $item->id) }}" 
                                             class="btn btn-sm btn-outline-secondary">Baca Artikel</a>
                                     </div>
                                 </div>

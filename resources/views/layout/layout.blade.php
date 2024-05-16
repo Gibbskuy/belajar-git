@@ -52,7 +52,7 @@
 
 <body>
   {{-- start header --}}
-  @include('layout.header-artikel')
+  @include('layout.header')
   {{-- end header --}}
 
 

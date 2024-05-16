@@ -5,9 +5,8 @@
                     <div class="col-sm-4 offset-md-1 py-4">
                         <h4 class="text-white">Contact</h4>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                            <li><a href="#" class="text-white">Like on Facebook</a></li>
-                            <li><a href="#" class="text-white">Email me</a></li>
+                            <li><a href="{{url('login')}}" class="btn btn-outline-light">Login</a></li>
+                            <li><a href="{{url('register')}}" class="btn btn-outline-light" class="text-white">Register</a></li>
                         </ul>
                     </div>
                 </div>
@@ -16,7 +15,7 @@
         <div class="navbar navbar-dark bg-dark shadow-sm">
             <div class="container">
                 <a href="#" class="navbar-brand d-flex align-items-center">
-                    
+
                     <strong>Artikel</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
