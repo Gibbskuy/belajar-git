@@ -1,56 +1,48 @@
 <?php
 
-use App\Models\Siswa;
-use App\Models\Sekolah;
-use App\Models\Film;
-// import controller
-use App\Http\Controller\Mycontroller;
-use App\Http\Controllers\MovieController;
-use App\Http\Controllers\ArtikelController;
-use App\Http\Controllers\PenulisController;
-use App\Http\Controllers\GenreController;
 use App\Http\Controllers\BukuController;
-
-
+use App\Http\Controllers\GenreController;
+// import controller
+use App\Http\Controllers\PenulisController;
+use App\Models\Film;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 // route basic
 Route::get('/about', function () {
     return '<h1>Halo</h1>'
         . 'Selamat Datang di Webb Saya <br>'
         . 'Laravel, Memang keren.';
-    });
+});
 
-    Route::get('/halaman2', function () {
-        return view('animals');
-    });
+Route::get('/halaman2', function () {
+    return view('animals');
+});
 
-    Route::get('/halaman3', function () {
+Route::get('/halaman3', function () {
     return view('fruits');
-    });
+});
 
-    Route::get('/About', function () {
-        $nama = "Muhammad Maulana Gibran";
-        $jk = "Laki-laki";
-        $pt = "SMK";
-        $pekerjaan = "Siswa";
-    return view('biodata', compact('nama','jk','pt','pekerjaan'));
-    });
+Route::get('/About', function () {
+    $nama = "Muhammad Maulana Gibran";
+    $jk = "Laki-laki";
+    $pt = "SMK";
+    $pekerjaan = "Siswa";
+    return view('biodata', compact('nama', 'jk', 'pt', 'pekerjaan'));
+});
 
-    Route::get('/sample/{nama}/{kelas}', function (Request $request, $nama, $kelas) {
-        $nama2 = $nama;
-        $kelas2 = $kelas;
+Route::get('/sample/{nama}/{kelas}', function (Request $request, $nama, $kelas) {
+    $nama2 = $nama;
+    $kelas2 = $kelas;
     return view('sample', compact('nama2', 'kelas2'));
 });
 
-    Route::get('siswa',function(){
-        return view('siswa');
+Route::get('siswa', function () {
+    return view('siswa');
 });
-    Route::get('sekolah', function () {
+Route::get('sekolah', function () {
     return view('siswa');
 
 });
@@ -62,15 +54,15 @@ Route::get('film', function () {
     return view('film');
 
 });
-Route::get('film/{id}', function(int $id) {
+Route::get('film/{id}', function (int $id) {
     $film = Film::find($id);
     return view('detail-film', ['film' => Film::findOrfail($id)]);
 
 });
 
 //route with controller
-Route::get('perkenalan',[App\Http\Controllers\Mycontroller::class,'introduce']);
-Route::get('hewan',[App\Http\Controllers\Mycontroller::class,'animals']);
+Route::get('perkenalan', [App\Http\Controllers\Mycontroller::class, 'introduce']);
+Route::get('hewan', [App\Http\Controllers\Mycontroller::class, 'animals']);
 
 Route::get('movie', [App\Http\Controllers\MovieController::class, 'getMovie']);
 
@@ -84,7 +76,14 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// route crud
-Route::resource('penulis', PenulisController::class);
-Route::resource('genre', GenreController::class);
-Route::resource('buku', BukuController::class);
+// route admin
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+    Route::resource('penulis', PenulisController::class);
+    Route::resource('genre', GenreController::class);
+    Route::resource('buku', BukuController::class);
+});
+
+// route guest(tamu / pengunjung)
+
+Route::get('/',[FrontController::class,'buku']);
+Route::get('buku/{id}',[FrontController::class,'detail_buku']);

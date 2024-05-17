@@ -7,28 +7,28 @@ use Illuminate\Http\Request;
 
 class GenreController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $genre = Genre::orderBy('id', 'desc')->get();
-        return view('genre.index', compact('genre'));
+        $genres = Genre::latest()->get();
+        return view('genre.index', compact('genres'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
-        return view('genre.create');
+        //
     }
 
     public function store(Request $request)
     {
-        // membuat validasi data
+
         $validated = $request->validate([
-            'nama_genre' => 'required|max:255',
+            'nama_genre' => 'required|unique:genres',
         ]);
 
         $genre = new Genre();
@@ -36,42 +36,50 @@ class GenreController extends Controller
         $genre->save();
 
         return redirect()->route('genre.index')
-            ->with('success', 'data berhasil ditambahkan');
+            ->with('success', 'Data berhasil di tambahkan');
+
     }
 
+    /**
+     * Display the specified resource.
+     */
     public function show($id)
     {
-        $genre = Genre::findOrFail($id);
-        return view('genre.show', compact('genre'));
+        //
     }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
     public function edit($id)
     {
-        $genre = Genre::findOrFail($id);
-        return view('genre.edit', compact('genre'));
+        //
     }
 
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nama_genre' => 'required|max:255',
+            'nama_genre' => 'required|unique:genres',
         ]);
 
         $genre = Genre::findOrFail($id);
         $genre->nama_genre = $request->nama_genre;
-        $genre->bio = $request->bio;
         $genre->save();
 
         return redirect()->route('genre.index')
-            ->with('success', 'data berhasil di ubah');
+            ->with('success', 'Data berhasil di ubah');
+
     }
 
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy($id)
     {
         $genre = Genre::findOrFail($id);
         $genre->delete();
-
         return redirect()->route('genre.index')
-            ->with('success', 'data berhasil di hapus');
+            ->with('success', 'Data berhasil di hapus');
+
     }
 }

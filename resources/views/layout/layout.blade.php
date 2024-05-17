@@ -30,6 +30,10 @@
     <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
 
+    {{-- style --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css">
+
 
     <style>
         .bd-placeholder-img {
@@ -51,9 +55,9 @@
 </head>
 
 <body>
-  {{-- start header --}}
-  @include('layout.header')
-  {{-- end header --}}
+    {{-- start header --}}
+    @include('layout.header')
+    {{-- end header --}}
 
 
     <main class="py-4">
@@ -61,13 +65,29 @@
     </main>
 
     {{-- start footer --}}
-      @include('layout.footer')
+    @include('layout.footer')
     {{-- end footer --}}
 
+    {{-- script --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
 
+    {{-- select2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+     <script>
+        $(document).ready(function() {
+            $('.select-multiple').select2();
+        });
+    </script>
+
+    {{-- datatbles --}}
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.bootstrap5.js"></script>
+    <script>
+        new DataTable('#datatable');
+    </script>
 
 </body>
 
